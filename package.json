@@ -1,7 +1,7 @@
 {
   "name": "@kinvo/highcharts-export-server",
   "author": "Highsoft AS <support@highcharts.com> (http://www.highcharts.com/about)",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "bin": {
     "highcharts-export-server": "./bin/cli.js"
   },
