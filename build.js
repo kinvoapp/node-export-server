@@ -451,12 +451,17 @@ if (process.env.ACCEPT_HIGHCHARTS_LICENSE) {
     cdnURL = process.env.HIGHCHARTS_CDN || cdnURL;
 
     embedAll(
-      useIfDefined(process.env.HIGHCHARTS_VERSION, 'latest'),
-      useIfDefined(process.env.HIGHCHARTS_USE_STYLED, true),
-      useIfDefined(process.env.HIGHCHARTS_USE_MAPS, true),
-      useIfDefined(process.env.HIGHCHARTS_MOMENT, false),
-      useIfDefined(process.env.HIGHCHARTS_USE_GANTT, true),
-      getOptionals(cdnScriptsOptional, true)
+      process.env.HIGHCHARTS_VERSION || 'latest',
+      process.env.HIGHCHARTS_USE_STYLED || false,
+      process.env.HIGHCHARTS_USE_MAPS || false,
+      process.env.HIGHCHARTS_MOMENT || false,
+      process.env.HIGHCHARTS_USE_GANTT || false,
+      process.env.HIGHCHARTS_OPTIONALS
+      ? getOptionals({
+          wordcloud: process.env.HIGHCHARTS_OPTIONALS_WORDCLOUD || false,
+          annotations: process.env.HIGHCHARTS_OPTIONALS_ANNOTATIONS || false,
+        })
+      : false
     );
 } else {
     console.log(fs.readFileSync(__dirname + '/msg/licenseagree.msg').toString().bold);
