@@ -442,10 +442,6 @@ function startPrompt() {
   });
 }
 
-function useIfDefined(what, def) {
-  return (typeof what === 'undefined' ? def : what);
-}
-
 if (process.env.ACCEPT_HIGHCHARTS_LICENSE) {
 
     cdnURL = process.env.HIGHCHARTS_CDN || cdnURL;
