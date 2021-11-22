@@ -5,6 +5,7 @@
   "bin": {
     "highcharts-export-server": "./bin/cli.js"
   },
+  "files": ["**/*"],
   "scripts": {
     "preinstall": "node ./pre.build.js",
     "postinstall": "node ./post.build.js",
